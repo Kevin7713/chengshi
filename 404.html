@@ -5,12 +5,17 @@
   <title>正在跳转…</title>
   <script>
     (function () {
-      // GitHub Pages 404 兜底：把 /chengshi/city/foshan 重定向到 /chengshi/#/city/foshan
-      var path = window.location.pathname;            // 例如 /chengshi/city/foshan
-      var hash = path.replace(/^\/chengshi\/?/, '/'); // -> /city/foshan
-      window.location.replace('/chengshi/#' + hash); // -> /chengshi/#/city/foshan
+      // GitHub Pages 404 兜底：把 /chengshi/city/<slug> 重定向到 /chengshi/#/city/<slug>
+      var path = window.location.pathname;             // 例如 /chengshi/city/guangzhou
+      var hash = path.replace(/^\/chengshi\/?/, '/')   // 去掉项目前缀 -> /city/guangzhou
+                     .replace(/\/+$/, '');            // 去掉结尾斜杠 -> /city/guangzhou
+      var target = '/chengshi/#' + hash;              // -> /chengshi/#/city/guangzhou
+      window.location.replace(target);
     })();
   </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/chengshi/">
+  </noscript>
 </head>
 <body>
   <p style="font-family:sans-serif;text-align:center;margin-top:20vh;color:#666">
