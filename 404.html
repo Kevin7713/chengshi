@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>正在跳转…</title>
+  <script>
+    (function () {
+      // GitHub Pages 404 兜底：把 /chengshi/city/foshan 重定向到 /chengshi/#/city/foshan
+      var path = window.location.pathname;            // 例如 /chengshi/city/foshan
+      var hash = path.replace(/^\/chengshi\/?/, '/'); // -> /city/foshan
+      window.location.replace('/chengshi/#' + hash); // -> /chengshi/#/city/foshan
+    })();
+  </script>
+</head>
+<body>
+  <p style="font-family:sans-serif;text-align:center;margin-top:20vh;color:#666">
+    页面跳转中…若未自动跳转，请<a href="/chengshi/">返回首页</a>。
+  </p>
+</body>
+</html>
